@@ -25,3 +25,11 @@ html {
 body {
   margin: 0;
 }
+
+body button:focus,
+body input:focus,
+body select:focus,
+body textarea:focus,
+body :focus-visible {
+  outline: none;
+}

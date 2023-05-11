@@ -1,6 +1,6 @@
 <template>
   <el-container style="height: 100%">
-    <el-header>
+    <el-header style="padding: 0">
       <AppHeader />
     </el-header>
     <el-container style="height: 100%">

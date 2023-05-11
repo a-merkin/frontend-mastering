@@ -1,13 +1,16 @@
 <template>
-  <div>
-
+  <div class="header">
+    <UserMenu />
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped>
-
+<style scoped lang="scss">
+.header {
+  background: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 </style>
