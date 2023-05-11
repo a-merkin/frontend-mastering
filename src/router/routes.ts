@@ -2,14 +2,28 @@ import { RouteRecordRaw } from "vue-router"
 
 const routes: readonly RouteRecordRaw[] = [
   {
-    path: "/auth",
-    name: "Auth",
-    component: import("@/pages/AuthPage.vue")
-  },
-  {
-    path: "/registration",
-    name: "Registarion",
-    component: import("@/pages/RegistrationPage.vue")
+    path: "/start",
+    name: "Start",
+    component: () => import("@/pages/StartPage.vue"),
+    redirect: "/auth",
+    children: [
+      {
+        path: "/auth",
+        name: "Auth",
+        component: () => import("@/components/AppAuth.vue"),
+        meta: {
+          title: "Авторизация"
+        }
+      },
+      {
+        path: "/register",
+        name: "Register",
+        component: () => import("@/components/AppRegistration.vue"),
+        meta: {
+          title: "Регистрация"
+        }
+      }
+    ]
   }
 ]
 
