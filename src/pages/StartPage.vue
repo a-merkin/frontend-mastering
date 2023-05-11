@@ -13,13 +13,6 @@ import { computed } from "vue"
 const pageTitle = computed(() => {
   return router.currentRoute.value.meta.title
 })
-
-const handleLogin = () => {
-  //
-}
-const handleRegistation = () => {
-  router.push("/registration")
-}
 </script>
 
 <style scoped lang="scss">

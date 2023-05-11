@@ -18,7 +18,9 @@
 <script setup lang="ts">
 import router from "@/router"
 
-const handleNotification = () => {}
+const handleNotification = () => {
+  // 
+}
 const handleLogout = () => {
   router.push("/auth")
 }
