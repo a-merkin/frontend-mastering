@@ -16,13 +16,13 @@
 </template>
 
 <script setup lang="ts">
-import router from '@/router'
+import router from "@/router"
 
 const handleLogin = () => {
-  //
+  router.push("/workplace")
 }
 const handleRegistration = () => {
-  router.push('/register')
+  router.push("/register")
 }
 </script>
 
