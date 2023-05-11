@@ -24,6 +24,11 @@ const routes: readonly RouteRecordRaw[] = [
         }
       }
     ]
+  },
+  {
+    path: "/workplace",
+    name: "Workplace",
+    component: () => import("@/pages/MainPage.vue")
   }
 ]
 

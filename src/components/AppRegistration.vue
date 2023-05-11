@@ -17,7 +17,7 @@
 import router from "@/router"
 
 const handleRegistration = () => {
-  //
+  router.push("/workplace")
 }
 const handleCancel = () => {
   router.push("/auth")
