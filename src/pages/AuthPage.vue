@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form>
+    <el-form label-position="top">
       <el-form-item label="Эл. почта">
         <el-input></el-input>
       </el-form-item>
@@ -16,11 +16,13 @@
 </template>
 
 <script setup lang="ts">
+import router from "@/router"
+
 const handleLogin = () => {
   //
 }
 const handleRegistation = () => {
-  //
+  router.push("/registration")
 }
 </script>
 
