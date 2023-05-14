@@ -8,7 +8,9 @@
         <AppSidebar />
       </el-aside>
       <el-main>
-        <RouterView></RouterView>
+        <div style="background: #fff; height: 100%">
+          <RouterView></RouterView>
+        </div>
       </el-main>
     </el-container>
   </el-container>

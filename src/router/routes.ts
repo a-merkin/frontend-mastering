@@ -28,7 +28,18 @@ const routes: readonly RouteRecordRaw[] = [
   {
     path: "/workplace",
     name: "Workplace",
-    component: () => import("@/pages/MainPage.vue")
+    component: () => import("@/pages/MainPage.vue"),
+    redirect: '/users-list',
+    children: [
+      {
+        path: "/users-list",
+        name: "Users",
+        component: () => import("@/pages/UsersPage.vue"),
+        meta: {
+          title: "Список пользователей"
+        }
+      }
+    ]
   }
 ]
 

@@ -30,10 +30,18 @@ declare module '@vue/runtime-core' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
+    ElPagination: typeof import('element-plus/es')['ElPagination']
+    ElPopover: typeof import('element-plus/es')['ElPopover']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElTag: typeof import('element-plus/es')['ElTag']
     IconITTP: typeof import('./src/components/icons/IconITTP.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TableActions: typeof import('./src/components/TableActions.vue')['default']
+    TablePagination: typeof import('./src/components/TablePagination.vue')['default']
     UserMenu: typeof import('./src/components/UserMenu.vue')['default']
+    UsersListTable: typeof import('./src/components/UsersListTable.vue')['default']
   }
 }
