@@ -1,4 +1,5 @@
 import { useAppStore } from "@/store/"
+import { showErrorMessage, showSuccessMessage } from "@/helpers/notifications.ts"
 import axios from "axios"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -24,8 +25,21 @@ const clearToken = () => {
 axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL
 
 axios.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    const mapMessages = {
+      post: "Данные сохранены.",
+      delete: "Данные удаленены.",
+      patch: "Данные измененены.",
+      get: "Данные получены."
+    }
+    showSuccessMessage(mapMessages[response.config.method])
+
+    return response
+  },
   (error) => {
+    console.log(error)
+    showErrorMessage(error.response.data.error)
+
     if (error.response.status === 401) {
       clearToken()
       useAppStore().handleLogout()

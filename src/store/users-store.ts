@@ -2,9 +2,9 @@ import { User } from "@/types/User"
 import { defineStore } from "pinia"
 import { users } from "@/services/api"
 
-export const useUserStore = defineStore("user-store", {
+export const useUsersStore = defineStore("users-store", {
   state: () => ({
-    users: null as User
+    users: [] as User[]
   }),
   actions: {
     getUsers(params) {

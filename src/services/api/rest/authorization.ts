@@ -1,12 +1,8 @@
 import makeRequest from "../httpClient"
 
-export const login = ({ username, email, password }) =>
+export const login = (data) =>
   makeRequest({
     url: "/login/",
     method: "POST",
-    data: {
-      username,
-      email,
-      password
-    }
+    data
   })
