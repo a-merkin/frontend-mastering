@@ -16,13 +16,12 @@
 </template>
 
 <script setup lang="ts">
-import router from "@/router"
+import { useAppStore } from "@/store"
+
+const { handleLogout } = useAppStore()
 
 const handleNotification = () => {
-  // 
-}
-const handleLogout = () => {
-  router.push("/auth")
+  //
 }
 </script>
 
