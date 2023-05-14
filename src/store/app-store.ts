@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { authorization, setToken } from "@/services/api"
+import { authorization, setToken, logout, registration } from "@/services/api"
 import { User } from "@/types/User"
 
 import router from "@/router"
@@ -9,8 +9,8 @@ export const useAppStore = defineStore("app-store", {
     user: null as User
   }),
   actions: {
-    handleLogin(form) {
-      return authorization.login(form).then((response) => {
+    handleLogin(data) {
+      return authorization.login(data).then((response) => {
         const { token } = response.data
         localStorage.setItem("token", `${token}`)
         setToken(localStorage.getItem("token"))
@@ -18,12 +18,18 @@ export const useAppStore = defineStore("app-store", {
       })
     },
     handleLogout() {
+      logout.logout()
       setToken(null)
       localStorage.clear()
       router.push("/auth")
     },
-    handleRegister() {
-      //
+    handleRegister(data) {
+      return registration.register(data).then((response) => {
+        const { token } = response.data
+        localStorage.setItem("token", `${token}`)
+        setToken(localStorage.getItem("token"))
+        return response
+      })
     }
   }
 })

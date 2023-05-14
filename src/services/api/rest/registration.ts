@@ -1,6 +1,6 @@
 import makeRequest from "../httpClient"
 
-export const registration = ({ username, email, password }) =>
+export const register = ({ username, email, password }) =>
   makeRequest({
     url: "/register/",
     method: "POST",

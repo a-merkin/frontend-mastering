@@ -5,7 +5,11 @@
         <el-input v-model="form.email"></el-input>
       </el-form-item>
       <el-form-item label="Пароль">
-        <el-input v-model="form.password"></el-input>
+        <el-input v-model="form.password" type="password"
+          ><template #suffix>
+            <el-button link
+              ><el-icon><Hide /></el-icon> </el-button></template
+        ></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="handleAuth">Войти</el-button>
