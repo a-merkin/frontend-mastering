@@ -1,7 +1,7 @@
 export const showErrorMessage = (data) => {
   ElNotification.error({
     title: "Ошибка",
-    message: data,
+    message: `Server response: ${data}`,
     showClose: true,
     duration: 4000
   })
