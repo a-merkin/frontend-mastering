@@ -29,7 +29,7 @@ const routes: readonly RouteRecordRaw[] = [
     path: "/workplace",
     name: "Workplace",
     component: () => import("@/pages/MainPage.vue"),
-    redirect: '/users-list',
+    redirect: "/users-list",
     children: [
       {
         path: "/users-list",
