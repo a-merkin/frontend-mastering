@@ -37,7 +37,6 @@ axios.interceptors.response.use(
     return response
   },
   (error) => {
-    console.log(error)
     showErrorMessage(error.response.data.error)
 
     if (error.response.status === 401) {

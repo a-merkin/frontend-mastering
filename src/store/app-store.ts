@@ -6,7 +6,7 @@ import router from "@/router"
 
 export const useAppStore = defineStore("app-store", {
   state: () => ({
-    user: null as User,
+    user: null as User
   }),
   actions: {
     handleLogin(form) {
@@ -20,7 +20,7 @@ export const useAppStore = defineStore("app-store", {
     handleLogout() {
       setToken(null)
       localStorage.clear()
-      router.push({ name: "Auth" })
+      router.push("/auth")
     },
     handleRegister() {
       //
