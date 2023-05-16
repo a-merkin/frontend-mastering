@@ -2,7 +2,7 @@
   <div class="users-page">
     <div class="users-page__table-container">
       <TableActions />
-      <UsersListTable />
+      <UsersListTable @user-edit="handleUserEdit" />
     </div>
     <TablePagination
       v-model:page="paginationForm.page"
@@ -15,6 +15,8 @@
 <script setup lang="ts">
 import { useUsersStore } from "@/store"
 import { reactive, watch } from "vue"
+import { useModal } from "vue-final-modal"
+import ModalUserEdit from "@/components/ModalUserEdit.vue"
 
 const userStore = useUsersStore()
 
@@ -22,6 +24,15 @@ const INIT_PAGINATION = {
   page: 1,
   per_page: 15
 }
+
+const userModal = useModal({
+  component: ModalUserEdit,
+  attrs: {
+    onConfirm() {
+      close()
+    }
+  }
+})
 
 const paginationForm = reactive(
   {} as {
@@ -42,6 +53,11 @@ const fetchUsers = () => {
 }
 
 fetchUsers()
+
+const handleUserEdit = () => {
+  console.log("kek")
+  userModal.open()
+}
 
 watch(paginationForm, fetchUsers)
 </script>

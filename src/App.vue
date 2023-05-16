@@ -2,6 +2,7 @@
 import { RouterView } from "vue-router"
 import router from "@/router"
 import { setToken } from "@/services/api"
+import { ModalsContainer } from "vue-final-modal"
 
 function checkToken() {
   const token = localStorage.getItem("token")
@@ -16,6 +17,7 @@ checkToken()
 
 <template>
   <RouterView />
+  <ModalsContainer />
 </template>
 
 <style scoped lang="scss"></style>
