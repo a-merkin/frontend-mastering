@@ -1,6 +1,9 @@
 <template>
-  <VueFinalModal class="modal" content-class="modal__content">
-    <div class="test">
+  <VueFinalModal
+    style="display: flex; justify-content: center; align-items: center"
+    contentStyle=""
+  >
+    <div class="modal">
       <el-form>
         <el-form-item label="Activity name">
           <el-input v-model="form.email" />
@@ -34,16 +37,9 @@ const handleSubmit = () => {
 
 <style scoped lang="scss">
 .modal {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 0.5rem;
-  }
 }
 </style>
