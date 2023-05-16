@@ -21,8 +21,8 @@ export const updateUser = (id, data) =>
     data
   })
 
- export const deleteUser = (id) =>
+export const deleteUser = (id) =>
   makeRequest({
     url: `/users/${id}`,
-    method: "DELETE",
-  }) 
+    method: "DELETE"
+  })
