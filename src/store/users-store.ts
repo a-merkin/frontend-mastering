@@ -4,11 +4,13 @@ import { users } from "@/services/api"
 
 export const useUsersStore = defineStore("users-store", {
   state: () => ({
-    users: [] as User[]
+    users: [] as User[],
+    usersMaxPage: null as number
   }),
   actions: {
     getUsers(params) {
       return users.getUsers(params).then(({ data }) => {
+        this.usersMaxPage = data.total_pages
         this.users = data.data
       })
     }
