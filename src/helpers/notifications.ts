@@ -1,16 +1,16 @@
-export const showErrorMessage = (data) => {
+export const showErrorMessage = (notification: { type: string; text: string }) => {
   ElNotification.error({
     title: "Ошибка",
-    message: `Server response: ${data}`,
+    message: `Server response: ${notification.text}`,
     showClose: true,
     duration: 4000
   })
 }
 
-export const showSuccessMessage = (data) => {
+export const showSuccessMessage = (notification: { type: string; text: string }) => {
   ElNotification.success({
-    title: "Успешно",
-    message: data,
+    title: notification.type,
+    message: notification.text,
     showClose: true,
     duration: 4000
   })

@@ -8,7 +8,16 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useUsersStore } from "@/store"
+
+const userStore = useUsersStore()
+
+const paginationParams = {}
+const filterForm = {}
+
+userStore.getUsers({ ...paginationParams, ...filterForm })
+</script>
 
 <style scoped lang="scss">
 .users-page {

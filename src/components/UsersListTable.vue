@@ -1,25 +1,27 @@
 <template>
   <div class="users-list">
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column label="Date" width="180">
+    <el-table :data="userStore.users" style="width: 100%">
+      <el-table-column label="Фото" width="180">
         <template #default="scope">
           <div style="display: flex; align-items: center">
             <el-icon><timer /></el-icon>
-            <span style="margin-left: 10px">{{ scope.row.date }}</span>
+            <span style="margin-left: 10px">{{ scope.row.id }}</span>
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="Name" width="180">
+      <el-table-column label="Имя" width="180">
         <template #default="scope">
-          <el-popover effect="light" trigger="hover" placement="top" width="auto">
-            <template #default>
-              <div>name: {{ scope.row.name }}</div>
-              <div>address: {{ scope.row.address }}</div>
-            </template>
-            <template #reference>
-              <el-tag>{{ scope.row.name }}</el-tag>
-            </template>
-          </el-popover>
+          <p>{{ scope.row.first_name }}</p>
+        </template>
+      </el-table-column>
+      <el-table-column label="Фамилия" width="180">
+        <template #default="scope">
+          <p>{{ scope.row.last_name }}</p>
+        </template>
+      </el-table-column>
+      <el-table-column label="Email" width="180">
+        <template #default="scope">
+          <p>{{ scope.row.email }}</p>
         </template>
       </el-table-column>
       <el-table-column label="Operations">
@@ -41,8 +43,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
+import { useUsersStore } from "@/store"
 
-const tableData = ref([])
+const userStore = useUsersStore()
 
 const handleEdit = (index: number, row: number) => {
   console.log(index, row)

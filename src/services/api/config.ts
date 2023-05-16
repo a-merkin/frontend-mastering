@@ -27,17 +27,24 @@ axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL
 axios.interceptors.response.use(
   (response) => {
     const mapMessages = {
-      post: "Данные сохранены.",
-      delete: "Данные удаленены.",
-      patch: "Данные измененены.",
-      get: "Данные получены."
+      post: "Данные успешно сохранены.",
+      delete: "Данные успешно удаленены.",
+      patch: "Данные успешно измененены.",
+      get: "Данные успешно получены."
     }
-    showSuccessMessage(mapMessages[response.config.method])
+    showSuccessMessage({
+      type: response.config.method,
+      text: mapMessages[response.config.method]
+    })
 
     return response
   },
   (error) => {
-    showErrorMessage(error.response.data.error)
+    console.log(error)
+    showErrorMessage({
+      type: error.config.method,
+      text: error.response.data.error
+    })
 
     if (error.response.status === 401) {
       clearToken()
