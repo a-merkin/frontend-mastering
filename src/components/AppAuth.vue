@@ -6,6 +6,7 @@
       label-position="top"
       :model="form"
       :rules="rules"
+      @keyup.enter="submitForm(ruleFormRef)"
     >
       <el-form-item label="Эл. почта" prop="email">
         <el-input v-model="form.email"></el-input>

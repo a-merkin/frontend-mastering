@@ -7,7 +7,7 @@
       <p class="modal__title">
         {{ title }}
       </p>
-      <el-form>
+      <el-form @keyup.enter="handleSubmit">
         <el-form-item label="Почта">
           <el-input v-model="form.email" />
         </el-form-item>
