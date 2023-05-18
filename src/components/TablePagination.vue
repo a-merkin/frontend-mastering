@@ -1,13 +1,12 @@
 <template>
   <div>
     <el-pagination
-      v-model:current-page="paginationForm.currentPage"
-      v-model:page-size="paginationForm.pageSize"
-      :page-sizes="[100, 200, 300, 400]"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="400"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
+      background
+      layout="prev, pager, next, jumper, sizes"
+      :page-size="per_page"
+      :page-count="maxPage"
+      @current-change="(page: number) => handlePaginationEnter('update:page', page)"
+      @size-change="(size: number) => emits('update:per_page', size)"
     />
   </div>
 </template>
@@ -15,17 +14,20 @@
 <script setup lang="ts">
 import { ref } from "vue"
 
-const paginationForm = ref({
-  currentPage: "",
-  pageSize: ""
+defineProps({
+  page: { type: Number, required: true },
+  per_page: { type: Number, required: true },
+  maxPage: { type: Number, required: true }
 })
 
-const handleSizeChange = () => {
-  //
-}
+const emits = defineEmits(["update:per_page", "update:page", "submit-pagination"])
 
-const handleCurrentChange = () => {
-  //
+const pageField = ref("")
+
+const handlePaginationEnter = (event: any, value: any) => {
+  emits(event, value)
+  emits("submit-pagination")
+  pageField.value = ""
 }
 </script>
 

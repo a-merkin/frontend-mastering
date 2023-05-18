@@ -1,3 +1,10 @@
+Выполнено:
+Основное задание - полностью
+
+Дополнительные задания:
+Выполнена настройка CI/CD с выкладкой в Netlify (https://beamish-sorbet-28f214.netlify.app)
+Написан pre-commit hook для запуска линтера и форматирования кода
+
 # ittp-app
 
 This template should help get you started developing with Vue 3 in Vite.

@@ -1,54 +1,59 @@
 <template>
-  <div class="users-list">
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column label="Date" width="180">
-        <template #default="scope">
-          <div style="display: flex; align-items: center">
-            <el-icon><timer /></el-icon>
-            <span style="margin-left: 10px">{{ scope.row.date }}</span>
-          </div>
-        </template>
-      </el-table-column>
-      <el-table-column label="Name" width="180">
-        <template #default="scope">
-          <el-popover effect="light" trigger="hover" placement="top" width="auto">
-            <template #default>
-              <div>name: {{ scope.row.name }}</div>
-              <div>address: {{ scope.row.address }}</div>
-            </template>
-            <template #reference>
-              <el-tag>{{ scope.row.name }}</el-tag>
-            </template>
-          </el-popover>
-        </template>
-      </el-table-column>
-      <el-table-column label="Operations">
-        <template #default="scope">
-          <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
-            >Edit</el-button
-          >
-          <el-button
-            size="small"
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)"
-            >Delete</el-button
-          >
-        </template>
-      </el-table-column>
-    </el-table>
-  </div>
+  <el-table
+    :data="userStore.users"
+    height="100%"
+    style="width: 100%"
+    :row-style="{ 'width': '100%' }"
+  >
+    <el-table-column label="Фото" width="180">
+      <template #default="scope">
+        <div style="display: flex; align-items: center">
+          <img :src="scope.row.avatar" />
+        </div>
+      </template>
+    </el-table-column>
+    <el-table-column label="Имя" width="180">
+      <template #default="scope">
+        <p>{{ scope.row.first_name }}</p>
+      </template>
+    </el-table-column>
+    <el-table-column label="Фамилия" width="180">
+      <template #default="scope">
+        <p>{{ scope.row.last_name }}</p>
+      </template>
+    </el-table-column>
+    <el-table-column label="Email" width="180">
+      <template #default="scope">
+        <p>{{ scope.row.email }}</p>
+      </template>
+    </el-table-column>
+    <el-table-column fixed="right">
+      <template #default="scope">
+        <el-button size="small" @click="handleEdit(scope.row.id)">Изменить</el-button>
+        <el-popconfirm title="Вы уверены?" @confirm="handleDelete(scope.row.id)">
+          <template #reference>
+            <el-button size="small" type="danger">Удалить</el-button>
+          </template>
+        </el-popconfirm>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { useUsersStore } from "@/store"
 
-const tableData = ref([])
+const emits = defineEmits(["edit-user", "delete-user"])
 
-const handleEdit = (index: number, row: number) => {
-  console.log(index, row)
+const userStore = useUsersStore()
+
+const handleEdit = (id: number) => {
+  emits("edit-user", id)
 }
-const handleDelete = (index: number, row: number) => {
-  console.log(index, row)
+const handleDelete = (id: number) => {
+  userStore.deleteUser(id).then(() => {
+    emits("delete-user")
+  })
 }
 </script>
 
