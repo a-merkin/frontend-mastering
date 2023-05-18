@@ -23,7 +23,7 @@ const routes: readonly RouteRecordRaw[] = [
       {
         path: "/register",
         name: "Register",
-        component: () => AppRegistration,
+        component: AppRegistration,
         meta: {
           title: "Регистрация"
         }
