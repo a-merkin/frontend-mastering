@@ -1,46 +1,46 @@
 import {
   d as u,
   o as d,
-  q as i,
+  c as i,
   w as n,
-  e,
+  a as e,
   u as m,
   r as w,
-  f as x,
-  m as y,
-  s as E,
-  v as I,
-  x as v,
-  y as g,
-  a as f,
-  g as M,
-  j as b,
-  n as C,
-  z as A,
-  A as $,
-  B as k,
-  c as S,
+  b as x,
+  E,
+  e as b,
+  f as y,
+  p as v,
+  g,
+  h as f,
+  _ as h,
+  i as I,
+  j as M,
+  k as C,
+  l as k,
+  m as $,
+  n as A,
+  q as S,
   R as B,
-  C as D,
-  D as U,
-  F,
-  G as H
-} from "./index-d92acd7d.js"
-/* empty css                     */ /* empty css                */ import { _ as h } from "./_plugin-vue_export-helper-c27b6911.js"
-/* empty css                  */ const V = (o) => (
+  s as D,
+  t as U,
+  v as H,
+  x as V
+} from "./index-d9222ca1.js"
+/* empty css                     */ const F = (o) => (
     v("data-v-99f10c91"), (o = o()), g(), o
   ),
-  N = V(() => f("span", null, "Список пользователей", -1)),
-  G = u({
+  N = F(() => f("span", null, "Список пользователей", -1)),
+  O = u({
     __name: "AppSidebar",
     setup(o) {
       const _ = () => {},
         s = () => {}
       return (r, t) => {
         const c = x("UserFilled"),
-          a = y,
-          l = E,
-          p = I
+          a = E,
+          l = b,
+          p = y
         return (
           d(),
           i(
@@ -67,18 +67,18 @@ import {
       }
     }
   })
-const O = h(G, [["__scopeId", "data-v-99f10c91"]])
-const R = (o) => (v("data-v-e33c5b95"), (o = o()), g(), o),
-  j = R(() => f("p", { class: "user-menu__username" }, "Меню пользователя", -1)),
-  q = u({
+const R = h(O, [["__scopeId", "data-v-99f10c91"]])
+const j = (o) => (v("data-v-e33c5b95"), (o = o()), g(), o),
+  q = j(() => f("p", { class: "user-menu__username" }, "Меню пользователя", -1)),
+  G = u({
     __name: "UserMenu",
     setup(o) {
-      const { handleLogout: _ } = M()
+      const { handleLogout: _ } = I()
       return (s, r) => {
         const t = C,
-          c = A,
+          c = k,
           a = $,
-          l = k
+          l = A
         return (
           d(),
           i(
@@ -88,7 +88,7 @@ const R = (o) => (v("data-v-e33c5b95"), (o = o()), g(), o),
               dropdown: n(() => [
                 e(a, null, {
                   default: n(() => [
-                    e(c, { onClick: m(_) }, { default: n(() => [b("Выход")]), _: 1 }, 8, [
+                    e(c, { onClick: m(_) }, { default: n(() => [M("Выход")]), _: 1 }, 8, [
                       "onClick"
                     ])
                   ]),
@@ -96,7 +96,7 @@ const R = (o) => (v("data-v-e33c5b95"), (o = o()), g(), o),
                 })
               ]),
               default: n(() => [
-                e(t, { type: "primary" }, { default: n(() => [j]), _: 1 })
+                e(t, { type: "primary" }, { default: n(() => [q]), _: 1 })
               ]),
               _: 1
             }
@@ -105,28 +105,28 @@ const R = (o) => (v("data-v-e33c5b95"), (o = o()), g(), o),
       }
     }
   })
-const z = h(q, [["__scopeId", "data-v-e33c5b95"]])
-const L = {},
-  P = { class: "header" }
-function T(o, _) {
-  const s = z
-  return d(), S("div", P, [e(s)])
+const L = h(G, [["__scopeId", "data-v-e33c5b95"]])
+const P = {},
+  T = { class: "header" }
+function z(o, _) {
+  const s = L
+  return d(), S("div", T, [e(s)])
 }
-const J = h(L, [
-    ["render", T],
+const J = h(P, [
+    ["render", z],
     ["__scopeId", "data-v-3b6620e8"]
   ]),
   K = { style: { background: "#fff", height: "100%" } },
-  ne = u({
+  Y = u({
     __name: "MainPage",
     setup(o) {
       return (_, s) => {
         const r = J,
           t = D,
-          c = O,
+          c = R,
           a = U,
-          l = F,
-          p = H
+          l = H,
+          p = V
         return (
           d(),
           i(
@@ -154,4 +154,4 @@ const J = h(L, [
       }
     }
   })
-export { ne as default }
+export { Y as default }
