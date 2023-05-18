@@ -7,7 +7,7 @@
       <p class="modal__title">
         {{ title }}
       </p>
-      <el-form @keyup.enter="handleSubmit">
+      <el-form v-loading="loaders.formLoader" @keyup.enter="handleSubmit">
         <el-form-item label="Почта">
           <el-input v-model="form.email" />
         </el-form-item>
@@ -18,9 +18,9 @@
           <el-input v-model="form.last_name" />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" :loading="isLoading" @click="handleSubmit"
-            >Подтвердить</el-button
-          >
+          <el-button type="primary" :loading="loaders.sumbitLoader" @click="handleSubmit">
+            Подтвердить
+          </el-button>
           <el-button @click="emit('close')">Отмена</el-button>
         </el-form-item>
       </el-form>
@@ -44,7 +44,13 @@ const props = defineProps<Props>()
 
 const form = ref({} as User)
 
-const isLoading = ref(false as boolean)
+const loaders = ref({
+  sumbitLoader: false,
+  formLoader: false
+} as {
+  sumbitLoader: boolean
+  formLoader: boolean
+})
 
 const emit = defineEmits<{
   (e: "close"): void
@@ -53,9 +59,14 @@ const emit = defineEmits<{
 
 const initForm = () => {
   if (props.userId) {
-    usersStore.getUser(props.userId).then(({ data }) => {
-      form.value = data.data
-    })
+    loaders.value.formLoader = true
+    usersStore
+      .getUser(props.userId)
+      .then(({ data }) => {
+        loaders.value.formLoader = false
+        form.value = data.data
+      })
+      .catch(() => (loaders.value.formLoader = false))
   } else
     form.value = {
       email: "",
@@ -66,23 +77,23 @@ const initForm = () => {
 initForm()
 
 const handleSubmit = () => {
-  isLoading.value = true
+  loaders.value.sumbitLoader = true
   if (props.userId) {
     usersStore
       .updateUser(form.value)
       .then(() => {
-        isLoading.value = false
+        loaders.value.sumbitLoader = false
         emit("confirm")
       })
-      .catch(() => (isLoading.value = false))
+      .catch(() => (loaders.value.sumbitLoader = false))
   } else {
     usersStore
       .createUser(form.value)
       .then(() => {
-        isLoading.value = false
+        loaders.value.sumbitLoader = false
         emit("confirm")
       })
-      .catch(() => (isLoading.value = false))
+      .catch(() => (loaders.value.sumbitLoader = false))
   }
 }
 </script>

@@ -2,6 +2,7 @@ import { RouteRecordRaw } from "vue-router"
 import AppAuth from "@/components/AppAuth.vue"
 import AppRegistration from "@/components/AppRegistration.vue"
 import StartPage from "@/pages/StartPage.vue"
+import MainPage from "@/pages/MainPage.vue"
 
 const routes: readonly RouteRecordRaw[] = [
   {
@@ -31,7 +32,7 @@ const routes: readonly RouteRecordRaw[] = [
   {
     path: "/workplace",
     name: "Workplace",
-    component: () => import("@/pages/MainPage.vue"),
+    component: MainPage,
     redirect: "/users-list",
     children: [
       {
