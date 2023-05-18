@@ -27,7 +27,7 @@ import {
   N as K,
   O as q,
   P as H
-} from "./index-6d14199b.js"
+} from "./index-ba6ceeff.js"
 /* empty css                     */ const J = U({
   __name: "TablePagination",
   props: { page: null, per_page: null, maxPage: null },
