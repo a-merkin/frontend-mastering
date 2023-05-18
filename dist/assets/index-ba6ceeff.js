@@ -62497,7 +62497,7 @@ function OCe(e, t) {
 }
 const zCe = "modulepreload",
   ACe = function (e) {
-    return "/" + e
+    return "/frontend-mastering/" + e
   },
   N4 = {},
   P4 = function (t, n, o) {
@@ -64826,9 +64826,9 @@ const bSe = lb(ySe, [["__scopeId", "data-v-a5f5f744"]]),
       name: "Workplace",
       component: () =>
         P4(
-          () => import("./MainPage-bebfaac4.js"),
+          () => import("./MainPage-eb87e7eb.js"),
           [
-            "assets/MainPage-bebfaac4.js",
+            "assets/MainPage-eb87e7eb.js",
             "assets/MainPage-7303e28a.css",
             "assets/el-scrollbar-4dbad1cd.css"
           ]
@@ -64840,9 +64840,9 @@ const bSe = lb(ySe, [["__scopeId", "data-v-a5f5f744"]]),
           name: "Users",
           component: () =>
             P4(
-              () => import("./UsersPage-f4fb6b58.js"),
+              () => import("./UsersPage-d849ccd1.js"),
               [
-                "assets/UsersPage-f4fb6b58.js",
+                "assets/UsersPage-d849ccd1.js",
                 "assets/UsersPage-a4b3d147.css",
                 "assets/el-scrollbar-4dbad1cd.css"
               ]
@@ -64852,7 +64852,7 @@ const bSe = lb(ySe, [["__scopeId", "data-v-a5f5f744"]]),
       ]
     }
   ],
-  nr = TCe({ history: q7e("/"), routes: wSe }),
+  nr = TCe({ history: q7e("/frontend-mastering/"), routes: wSe }),
   CSe = G({
     __name: "App",
     setup(e) {
