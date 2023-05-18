@@ -25,6 +25,7 @@ export const useUsersStore = defineStore("users-store", {
     },
     deleteUser(id) {
       return users.deleteUser(id)
+      // Отправка запроса на удаление, API не предоставляет возможность изменять данные в БД, поэтому массив users остается прежним
     }
   }
 })

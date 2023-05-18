@@ -4,6 +4,7 @@ import AppRegistration from "@/components/AppRegistration.vue"
 import StartPage from "@/pages/StartPage.vue"
 import MainPage from "@/pages/MainPage.vue"
 import UsersPage from "@/pages/UsersPage.vue"
+import InfoPage from "@/pages/InfoPage.vue"
 
 const routes: readonly RouteRecordRaw[] = [
   {
@@ -43,6 +44,11 @@ const routes: readonly RouteRecordRaw[] = [
         meta: {
           title: "Список пользователей"
         }
+      },
+      {
+        path: "/about",
+        name: "About",
+        component: InfoPage
       }
     ]
   }
