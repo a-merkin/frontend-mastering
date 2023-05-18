@@ -4,6 +4,10 @@
       <el-icon><UserFilled /></el-icon>
       <span>Список пользователей</span>
     </el-menu-item>
+    <el-menu-item index="2" @click="router.push('/about')">
+      <el-icon><UserFilled /></el-icon>
+      <span>Об авторе</span>
+    </el-menu-item>
   </el-menu>
 </template>
 

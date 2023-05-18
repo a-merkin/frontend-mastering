@@ -65967,7 +65967,7 @@ This will fail in production.`)
           {
             path: "/register",
             name: "Register",
-            component: () => pSe,
+            component: pSe,
             meta: { title: "Регистрация" }
           }
         ]

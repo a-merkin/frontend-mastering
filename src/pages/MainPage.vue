@@ -1,9 +1,9 @@
 <template>
-  <el-container style="height: 100%">
+  <el-container style="height: 100vh">
     <el-header style="padding: 0">
       <AppHeader />
     </el-header>
-    <el-container style="height: 100%">
+    <el-container style="height: 70vh">
       <el-aside width="100">
         <AppSidebar />
       </el-aside>
