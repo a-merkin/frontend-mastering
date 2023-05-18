@@ -8,7 +8,7 @@
 Также:
 
 Выполнена настройка CI/CD с выкладкой в GitHubPages (https://a-merkin.github.io/frontend-mastering/) и Netlify (https://beamish-sorbet-28f214.netlify.app).
-
+Для содержания кода в едином стиле были использованы [Eslint](https://eslint.org/) и [Prettier](https://prettier.io/).
 Написан pre-commit hook для запуска линтера и форматирования кода.
 
 Стек используемых технологий: 
