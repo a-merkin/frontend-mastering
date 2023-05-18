@@ -88,10 +88,12 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate((valid: boolean) => {
     if (valid) {
       isLoading.value = true
-      handleRegister({ email: form.email, password: form.password }).then(() => {
-        isLoading.value = false
-        router.push("/workplace")
-      })
+      handleRegister({ email: form.email, password: form.password })
+        .then(() => {
+          isLoading.value = false
+          router.push("/workplace")
+        })
+        .catch(() => (isLoading.value = false))
     } else {
       return false
     }
