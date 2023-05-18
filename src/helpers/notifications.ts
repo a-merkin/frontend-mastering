@@ -1,4 +1,9 @@
-export const showErrorMessage = (notification: { type: string; text: string }) => {
+type Notification = {
+  type: string
+  text: string
+}
+
+export const showErrorMessage = (notification: Notification) => {
   ElNotification.error({
     title: "Ошибка",
     message: `Server response: ${notification.text}`,
@@ -7,7 +12,7 @@ export const showErrorMessage = (notification: { type: string; text: string }) =
   })
 }
 
-export const showSuccessMessage = (notification: { type: string; text: string }) => {
+export const showSuccessMessage = (notification: Notification) => {
   ElNotification.success({
     title: notification.type,
     message: notification.text,

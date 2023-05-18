@@ -5,9 +5,6 @@
     </el-button>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item @click="handleNotification"
-          >Уведомления включены</el-dropdown-item
-        >
         <el-dropdown-item @click="handleLogout">Выход</el-dropdown-item>
       </el-dropdown-menu>
     </template>
@@ -18,10 +15,6 @@
 import { useAppStore } from "@/store"
 
 const { handleLogout } = useAppStore()
-
-const handleNotification = () => {
-  //
-}
 </script>
 
 <style scoped lang="scss">

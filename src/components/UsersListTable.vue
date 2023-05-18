@@ -29,13 +29,12 @@
     </el-table-column>
     <el-table-column fixed="right">
       <template #default="scope">
-        <el-button size="small" @click="handleEdit(scope.row)">Изменить</el-button>
-        <el-button
-          size="small"
-          type="danger"
-          @click="handleDelete(scope.$index, scope.row.id)"
-          >Удалить</el-button
-        >
+        <el-button size="small" @click="handleEdit(scope.row.id)">Изменить</el-button>
+        <el-popconfirm title="Вы уверены?" @confirm="handleDelete(scope.row.id)">
+          <template #reference>
+            <el-button size="small" type="danger">Удалить</el-button>
+          </template>
+        </el-popconfirm>
       </template>
     </el-table-column>
   </el-table>
@@ -44,16 +43,17 @@
 <script setup lang="ts">
 import { useUsersStore } from "@/store"
 
-const emits = defineEmits(["user-edit"])
+const emits = defineEmits(["edit-user", "delete-user"])
 
 const userStore = useUsersStore()
 
 const handleEdit = (id: number) => {
-  console.log("kekkk")
-  emits("user-edit", id)
+  emits("edit-user", id)
 }
-const handleDelete = (index: number, row: number) => {
-  console.log(index, row)
+const handleDelete = (id: number) => {
+  userStore.deleteUser(id).then(() => {
+    emits("delete-user")
+  })
 }
 </script>
 

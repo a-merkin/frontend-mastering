@@ -28,8 +28,8 @@ axios.interceptors.response.use(
   (response) => {
     const mapMessages = {
       post: "Данные успешно сохранены.",
-      delete: "Данные успешно удаленены.",
-      patch: "Данные успешно измененены.",
+      delete: "Данные успешно удалены.",
+      patch: "Данные успешно изменены.",
       get: "Данные успешно получены."
     }
     showSuccessMessage({

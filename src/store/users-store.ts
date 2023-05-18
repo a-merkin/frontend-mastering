@@ -13,6 +13,18 @@ export const useUsersStore = defineStore("users-store", {
         this.usersMaxPage = data.total_pages
         this.users = data.data
       })
+    },
+    getUser(id) {
+      return users.getUser(id)
+    },
+    updateUser(user) {
+      return users.updateUser(user)
+    },
+    createUser(user) {
+      return users.createUser(user)
+    },
+    deleteUser(id) {
+      return users.deleteUser(id)
     }
   }
 })

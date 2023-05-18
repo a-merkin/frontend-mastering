@@ -7,17 +7,23 @@ export const getUsers = (params) =>
     params
   })
 
-export const addUser = (data) =>
+export const getUser = (id) =>
+  makeRequest({
+    url: `/users/${id}`,
+    method: "GET"
+  })
+
+export const createUser = (data) =>
   makeRequest({
     url: "/users/",
-    method: "GET",
+    method: "POST",
     data
   })
 
-export const updateUser = (id, data) =>
+export const updateUser = (data) =>
   makeRequest({
-    url: `/users/${id}`,
-    method: "GET",
+    url: `/users/${data.id}`,
+    method: "PATCH",
     data
   })
 

@@ -1,8 +1,8 @@
 <template>
   <div class="users-page">
     <div class="users-page__table-container">
-      <TableActions />
-      <UsersListTable @user-edit="handleUserEdit" />
+      <TableActions @create-user="handleUserCreate" />
+      <UsersListTable @edit-user="handleUserEdit" @delete-user="handleUserDelete" />
     </div>
     <TablePagination
       v-model:page="paginationForm.page"
@@ -22,16 +22,15 @@ const userStore = useUsersStore()
 
 const INIT_PAGINATION = {
   page: 1,
-  per_page: 15
+  per_page: 10
 }
 
-const userModal = useModal({
-  component: ModalUserEdit,
-  attrs: {
-    onConfirm() {
-      close()
-    }
-  }
+const {
+  close: closeUserModal,
+  open: openUserModal,
+  options: userModalOptions
+} = useModal({
+  component: ModalUserEdit
 })
 
 const paginationForm = reactive(
@@ -54,9 +53,37 @@ const fetchUsers = () => {
 
 fetchUsers()
 
-const handleUserEdit = () => {
-  console.log("kek")
-  userModal.open()
+const handleUserCreate = () => {
+  userModalOptions.attrs = {
+    title: "Создание",
+    onClose() {
+      closeUserModal()
+    },
+    onConfirm() {
+      closeUserModal()
+      fetchUsers()
+    }
+  }
+  openUserModal()
+}
+
+const handleUserEdit = (id: number) => {
+  userModalOptions.attrs = {
+    title: "Редактирование",
+    userId: id,
+    onClose() {
+      closeUserModal()
+    },
+    onConfirm() {
+      closeUserModal()
+      fetchUsers()
+    }
+  }
+  openUserModal()
+}
+
+const handleUserDelete = () => {
+  fetchUsers()
 }
 
 watch(paginationForm, fetchUsers)
