@@ -11,7 +11,7 @@
         </p>
         <p>
           Web-разработка заинтересовала меня уже тогда. Я начал с верстки и через
-          некоторое время начал писать pet проекты на Lit-elements.
+          некоторое время в команде писал pet проекты на Lit-elements.
         </p>
         <p>
           Коммерческой разработкой я начал заниматься полтора года назад. Тогда я
@@ -19,34 +19,25 @@
           служб (112, 122).
         </p>
       </div>
+      <el-scrollbar max-height="250px">
+        <el-timeline>
+          <el-timeline-item
+            v-for="(activity, index) in activities"
+            :key="index"
+            :timestamp="activity.timestamp"
+            :color="activity.color"
+            :type="activity.type"
+          >
+            {{ activity.content }}
+          </el-timeline-item>
+        </el-timeline>
+      </el-scrollbar>
       <div class="info-page__stack">
-        <h3>За 1.5 года я познакомился с большим количеством технологий:</h3>
-        <p>Chart.js - построение диаграмм и графиков.</p>
-        <p>WebSocket - разработка чатов и двусторонней связи между пользователями.</p>
-        <p>JsSip - разработка web-телефонии.</p>
-        <p>Vuex, Pinia - стейт менеджеры.</p>
-        <p>Leaflet, OpenLayers - разработка интерактивных карт.</p>
-        <p>Vuetify, Element Plus - UI киты.</p>
+        <h3>За 1.5 года я поработал со следующими технологиями:</h3>
+        <el-carousel :interval="4000" trigger="click" type="card" height="200px">
+          <CarouselCardStack v-for="item in stack" :key="item.name" v-bind="item" />
+        </el-carousel>
       </div>
-      <div class="info-page__achievments">
-        <h3>Индивидуальные достижения:</h3>
-        <p>Рефактор приложения с Vue 2 Option на Vue 3 Composition.</p>
-        <p>Разработка функционала звонков-конференций.</p>
-        <p>Разработка модуля интерактивной карты.</p>
-        <p>
-          Разработка модуля статистики с отображением данных в виде диаграм и графиков.
-        </p>
-      </div>
-      <el-timeline>
-        <el-timeline-item
-          v-for="(activity, index) in activities"
-          :key="index"
-          :timestamp="activity.timestamp"
-          :color="activity.color"
-        >
-          {{ activity.content }}
-        </el-timeline-item>
-      </el-timeline>
     </div>
   </el-scrollbar>
 </template>
@@ -74,19 +65,79 @@ const activities = [
     timestamp: "Декабрь 2021"
   },
   {
-    content: "Первая работа",
+    content: "Первая работа (Vue js)",
     timestamp: "Февраль 2022 - по настоящее время",
     color: "#0bbd87"
+  },
+  {
+    content: "Фриланс проект SSR (Vue js, Nuxt)",
+    timestamp: "Декабрь 2022",
+    type: "primary"
+  }
+]
+const stack = [
+  {
+    name: "Диаграммы",
+    technology: "Chart.js",
+    description: "Создание диаграмм и графиков",
+    img: "https://www.chartjs.org/img/chart-types.svg",
+    link: "https://www.chartjs.org/"
+  },
+  {
+    name: "Websocket клиент",
+    technology: "Socket IO",
+    description: "Подключение к сокет-серверу и обработка событий",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/96/Socket-io.svg",
+    link: "https://socket.io/"
+  },
+  {
+    name: "Web-телефония",
+    technology: "Js SIP",
+    description: "Разработка и отладка функционала sip и ТфОП звонков",
+    img: "https://freesvg.org/img/molumen_phone_icon.png",
+    link: "https://jssip.net/"
+  },
+  {
+    name: "Стейт-менеджеры",
+    technology: "Vuex, Pinia",
+    description: "Управление состоянием приложения",
+    img: "https://cdn1.iconfinder.com/data/icons/cartoon-glyphs-part-3/128/Graph_Diagram_Mindmap_Block-1024.png",
+    link: "https://pinia.vuejs.org/"
+  },
+  {
+    name: "Интерактивные карты",
+    technology: "Leaflet, OpenLayers",
+    description: "Разработка карт",
+    img: "https://pic.onlinewebfonts.com/svg/img_220469.png",
+    link: "https://openlayers.org/"
+  },
+  {
+    name: "UI киты",
+    technology: "Vuetify, Element Plus",
+    description:
+      "Готовые компоненты и стили для создания интерфейсов и быстрой разработки",
+    img: "https://avatars.githubusercontent.com/u/68583457?s=200&v=4",
+    link: "https://element-plus.org/en-US/"
   }
 ]
 </script>
 
 <style scoped lang="scss">
+h3 {
+  padding-bottom: 10px;
+}
 .info-page {
   display: flex;
   flex-direction: column;
   height: 100%;
   gap: 40px;
   padding: 15px;
+}
+.el-carousel__item:nth-child(2n) {
+  background-color: #d1ddef;
+}
+
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #e2ecf5;
 }
 </style>
