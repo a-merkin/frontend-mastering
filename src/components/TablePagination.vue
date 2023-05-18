@@ -3,8 +3,8 @@
     <el-pagination
       background
       layout="prev, pager, next, jumper, sizes"
-      :page-size="per_page"
-      :page-count="maxPage"
+      :page-size="props.per_page"
+      :page-count="props.maxPage"
       @current-change="(page: number) => handlePaginationEnter('update:page', page)"
       @size-change="(size: number) => emits('update:per_page', size)"
     />
@@ -14,11 +14,13 @@
 <script setup lang="ts">
 import { ref } from "vue"
 
-defineProps({
-  page: { type: Number, required: true },
-  per_page: { type: Number, required: true },
-  maxPage: { type: Number, required: true }
-})
+interface Props {
+  page: number
+  per_page: number
+  maxPage: number
+}
+
+const props = defineProps<Props>()
 
 const emits = defineEmits(["update:per_page", "update:page", "submit-pagination"])
 

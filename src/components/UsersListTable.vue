@@ -1,5 +1,6 @@
 <template>
   <el-table
+    v-loading="props.isLoading"
     :data="userStore.users"
     height="100%"
     style="width: 100%"
@@ -44,6 +45,12 @@
 import { useUsersStore } from "@/store"
 
 const emits = defineEmits(["edit-user", "delete-user"])
+
+interface Props {
+  isLoading: boolean
+}
+
+const props = defineProps<Props>()
 
 const userStore = useUsersStore()
 

@@ -2,7 +2,11 @@
   <div class="users-page">
     <div class="users-page__table-container">
       <TableActions @create-user="handleUserCreate" />
-      <UsersListTable @edit-user="handleUserEdit" @delete-user="handleUserDelete" />
+      <UsersListTable
+        :isLoading="isLoading"
+        @edit-user="handleUserEdit"
+        @delete-user="handleUserDelete"
+      />
     </div>
     <TablePagination
       v-model:page="paginationForm.page"
@@ -14,7 +18,7 @@
 
 <script setup lang="ts">
 import { useUsersStore } from "@/store"
-import { reactive, watch } from "vue"
+import { reactive, watch, ref } from "vue"
 import { useModal } from "vue-final-modal"
 import ModalUserEdit from "@/components/ModalUserEdit.vue"
 
@@ -24,6 +28,8 @@ const INIT_PAGINATION = {
   page: 1,
   per_page: 10
 }
+
+const isLoading = ref(true as boolean)
 
 const {
   close: closeUserModal,
@@ -48,7 +54,10 @@ const resetForm = () => {
 resetForm()
 
 const fetchUsers = () => {
-  userStore.getUsers({ ...paginationForm })
+  isLoading.value = true
+  userStore.getUsers({ ...paginationForm }).then(() => {
+    isLoading.value = false
+  })
 }
 
 fetchUsers()

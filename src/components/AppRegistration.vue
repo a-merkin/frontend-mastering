@@ -20,7 +20,7 @@
       ></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm(ruleFormRef)"
+      <el-button type="primary" :loading="isLoading" @click="submitForm(ruleFormRef)"
         >Создать аккаунт</el-button
       >
       <el-button @click="handleCancel">Отмена</el-button>
@@ -45,6 +45,8 @@ const form = reactive(
     password_confirmation: string
   }
 )
+
+const isLoading = ref(false as boolean)
 
 const validateEmail = (rule: any, value: any, callback: any) => {
   if (!value) {
@@ -84,12 +86,12 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid: boolean) => {
     if (valid) {
-      console.log("submit!")
+      isLoading.value = true
       handleRegister({ email: form.email, password: form.password }).then(() => {
+        isLoading.value = false
         router.push("/workplace")
       })
     } else {
-      console.log("error submit!")
       return false
     }
   })
