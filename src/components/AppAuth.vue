@@ -6,6 +6,7 @@
       label-position="top"
       :model="form"
       :rules="rules"
+      @keyup.enter="submitForm(ruleFormRef)"
     >
       <el-form-item label="Эл. почта" prop="email">
         <el-input v-model="form.email"></el-input>
@@ -18,7 +19,9 @@
         ></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm(ruleFormRef)">Войти</el-button>
+        <el-button type="primary" :loading="isLoading" @click="submitForm(ruleFormRef)"
+          >Войти</el-button
+        >
         <el-button @click="handleRegistration">Регистрация</el-button>
       </el-form-item>
     </el-form>
@@ -34,6 +37,8 @@ import { useAppStore } from "@/store/"
 const { handleLogin } = useAppStore()
 
 const ruleFormRef = ref<FormInstance>()
+
+const isLoading = ref(false as boolean)
 
 const form = reactive(
   {} as {
@@ -67,10 +72,12 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
   formEl.validate((valid: boolean) => {
     if (valid) {
-      console.log("submit!")
-      handleLogin(form).then(() => router.push("/workplace"))
+      isLoading.value = true
+      handleLogin(form).then(() => {
+        router.push("/workplace")
+        isLoading.value = false
+      })
     } else {
-      console.log("error submit!")
       return false
     }
   })

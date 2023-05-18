@@ -4,10 +4,6 @@
       <el-icon><UserFilled /></el-icon>
       <span>Список пользователей</span>
     </el-menu-item>
-    <el-menu-item index="2">
-      <el-icon><document /></el-icon>
-      <span>Путь 2</span>
-    </el-menu-item>
   </el-menu>
 </template>
 

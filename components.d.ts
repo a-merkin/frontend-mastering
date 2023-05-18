@@ -46,4 +46,7 @@ declare module "@vue/runtime-core" {
     UserMenu: typeof import("./src/components/UserMenu.vue")["default"]
     UsersListTable: typeof import("./src/components/UsersListTable.vue")["default"]
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import("element-plus/es")["ElLoadingDirective"]
+  }
 }

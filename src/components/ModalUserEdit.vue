@@ -7,7 +7,7 @@
       <p class="modal__title">
         {{ title }}
       </p>
-      <el-form>
+      <el-form @keyup.enter="handleSubmit">
         <el-form-item label="Почта">
           <el-input v-model="form.email" />
         </el-form-item>
@@ -18,7 +18,9 @@
           <el-input v-model="form.last_name" />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="handleSubmit">Подтвердить</el-button>
+          <el-button type="primary" :loading="isLoading" @click="handleSubmit"
+            >Подтвердить</el-button
+          >
           <el-button @click="emit('close')">Отмена</el-button>
         </el-form-item>
       </el-form>
@@ -42,6 +44,8 @@ const props = defineProps<Props>()
 
 const form = ref({} as User)
 
+const isLoading = ref(false as boolean)
+
 const emit = defineEmits<{
   (e: "close"): void
   (e: "confirm"): void
@@ -62,12 +66,15 @@ const initForm = () => {
 initForm()
 
 const handleSubmit = () => {
+  isLoading.value = true
   if (props.userId) {
     usersStore.updateUser(form.value).then(() => {
+      isLoading.value = false
       emit("confirm")
     })
   } else {
     usersStore.createUser(form.value).then(() => {
+      isLoading.value = false
       emit("confirm")
     })
   }
