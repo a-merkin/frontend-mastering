@@ -62497,7 +62497,7 @@ function OCe(e, t) {
 }
 const zCe = "modulepreload",
   ACe = function (e) {
-    return "/frontend-mastering/" + e
+    return "/" + e
   },
   N4 = {},
   P4 = function (t, n, o) {
@@ -64169,11 +64169,11 @@ const G$e = (e) => {
       title: "Ошибка",
       message: `Server response: ${e.text}`,
       showClose: !0,
-      duration: 4e3
+      duration: 5e3
     })
   },
   X$e = (e) => {
-    Mp.success({ title: e.type, message: e.text, showClose: !0, duration: 4e3 })
+    Mp.success({ title: e.type, message: e.text, showClose: !0, duration: 5e3 })
   }
 function Q$e(e) {
   const t = document.cookie.match(
@@ -64310,9 +64310,11 @@ const rb = { csrfHeader: Z$e, setToken: J$e },
             f.validate((d) => {
               if (d)
                 (o.value = !0),
-                  t(r).then(() => {
-                    nr.push("/workplace"), (o.value = !1)
-                  })
+                  t(r)
+                    .then(() => {
+                      ;(o.value = !1), nr.push("/workplace")
+                    })
+                    .catch(() => (o.value = !1))
               else return !1
             })
         },
@@ -64473,9 +64475,11 @@ const rb = { csrfHeader: Z$e, setToken: J$e },
             d.validate((p) => {
               if (p)
                 (r.value = !0),
-                  t({ email: o.email, password: o.password }).then(() => {
-                    ;(r.value = !1), nr.push("/workplace")
-                  })
+                  t({ email: o.email, password: o.password })
+                    .then(() => {
+                      ;(r.value = !1), nr.push("/workplace")
+                    })
+                    .catch(() => (r.value = !1))
               else return !1
             })
         },
@@ -64822,9 +64826,9 @@ const bSe = lb(ySe, [["__scopeId", "data-v-a5f5f744"]]),
       name: "Workplace",
       component: () =>
         P4(
-          () => import("./MainPage-25911e21.js"),
+          () => import("./MainPage-bebfaac4.js"),
           [
-            "assets/MainPage-25911e21.js",
+            "assets/MainPage-bebfaac4.js",
             "assets/MainPage-7303e28a.css",
             "assets/el-scrollbar-4dbad1cd.css"
           ]
@@ -64836,10 +64840,10 @@ const bSe = lb(ySe, [["__scopeId", "data-v-a5f5f744"]]),
           name: "Users",
           component: () =>
             P4(
-              () => import("./UsersPage-be239597.js"),
+              () => import("./UsersPage-f4fb6b58.js"),
               [
-                "assets/UsersPage-be239597.js",
-                "assets/UsersPage-739307ce.css",
+                "assets/UsersPage-f4fb6b58.js",
+                "assets/UsersPage-a4b3d147.css",
                 "assets/el-scrollbar-4dbad1cd.css"
               ]
             ),
@@ -64848,7 +64852,7 @@ const bSe = lb(ySe, [["__scopeId", "data-v-a5f5f744"]]),
       ]
     }
   ],
-  nr = TCe({ history: q7e("/frontend-mastering/"), routes: wSe }),
+  nr = TCe({ history: q7e("/"), routes: wSe }),
   CSe = G({
     __name: "App",
     setup(e) {
