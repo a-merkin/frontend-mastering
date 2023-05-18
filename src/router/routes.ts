@@ -3,6 +3,7 @@ import AppAuth from "@/components/AppAuth.vue"
 import AppRegistration from "@/components/AppRegistration.vue"
 import StartPage from "@/pages/StartPage.vue"
 import MainPage from "@/pages/MainPage.vue"
+import UsersPage from "@/pages/UsersPage.vue"
 
 const routes: readonly RouteRecordRaw[] = [
   {
@@ -38,7 +39,7 @@ const routes: readonly RouteRecordRaw[] = [
       {
         path: "/users-list",
         name: "Users",
-        component: () => import("@/pages/UsersPage.vue"),
+        component: UsersPage,
         meta: {
           title: "Список пользователей"
         }
