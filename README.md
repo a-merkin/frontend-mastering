@@ -1,14 +1,25 @@
-Выполнено:
-Основное задание - полностью
+# frontend-mastering
+Данное SPA приложение написано с целью отобразить мой уровень frontend разработки. 
 
-Дополнительные задания:
-Выполнена настройка CI/CD с выкладкой в Netlify (https://beamish-sorbet-28f214.netlify.app)
-Написан pre-commit hook для запуска линтера и форматирования кода
+В качестве API был использован сервис тестовых запросов [ReqRes](https://reqres.in/). 
 
-# ittp-app
+Стек используемых технологий: 
 
-This template should help get you started developing with Vue 3 in Vite.
+ - [Vue js](https://vuejs.org/) (Composition API)
+ - [TypeScript](https://www.typescriptlang.org/)
+ - Стейт-менеджер [Pinia](https://pinia.vuejs.org/)
+ - Ui Kit [Element Plus](https://element-plus.org/en-US/)
+ - HTTP клиент [Axios](https://axios-http.com/ru/docs/intro)
+ - CSS препроцессор [SCSS](https://sass-scss.ru/)
 
+Приложение содержит обработку запросов с последующим отображением уведомлений об успешном/неуспешном запросе и ответом сервера.
+
+Также:
+Выполнена настройка CI/CD с выкладкой в GitHubPages (https://a-merkin.github.io/frontend-mastering/) и Netlify (https://beamish-sorbet-28f214.netlify.app).
+
+Написан pre-commit hook для запуска линтера и форматирования кода.
+
+# Инструкция запуска:
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
@@ -50,4 +61,10 @@ npm run build
 
 ```sh
 npm run lint
+```
+
+### Format code with [Prettier](https://prettier.io/)
+
+```sh
+npm run format
 ```
