@@ -27,18 +27,18 @@ import {
   N as K,
   O as q,
   P as H
-} from "./index-d9222ca1.js"
+} from "./index-6d14199b.js"
 /* empty css                     */ const J = U({
   __name: "TablePagination",
   props: { page: null, per_page: null, maxPage: null },
   emits: ["update:per_page", "update:page", "submit-pagination"],
   setup(p, { emit: o }) {
-    const c = p,
+    const d = p,
       s = x(""),
-      t = (i, l) => {
-        o(i, l), o("submit-pagination"), (s.value = "")
+      t = (l, r) => {
+        o(l, r), o("submit-pagination"), (s.value = "")
       }
-    return (i, l) => {
+    return (l, r) => {
       const _ = F
       return (
         h(),
@@ -48,10 +48,10 @@ import {
             {
               background: "",
               layout: "prev, pager, next, jumper, sizes",
-              "page-size": c.per_page,
-              "page-count": c.maxPage,
-              onCurrentChange: l[0] || (l[0] = (u) => t("update:page", u)),
-              onSizeChange: l[1] || (l[1] = (u) => o("update:per_page", u))
+              "page-size": d.per_page,
+              "page-count": d.maxPage,
+              onCurrentChange: r[0] || (r[0] = (u) => t("update:page", u)),
+              onSizeChange: r[1] || (r[1] = (u) => o("update:per_page", u))
             },
             null,
             8,
@@ -69,17 +69,17 @@ const Q = { style: { display: "flex", "align-items": "center" } },
     props: { isLoading: { type: Boolean } },
     emits: ["edit-user", "delete-user"],
     setup(p, { emit: o }) {
-      const c = p,
+      const d = p,
         s = E(),
-        t = (l) => {
-          o("edit-user", l)
+        t = (r) => {
+          o("edit-user", r)
         },
-        i = (l) => {
-          s.deleteUser(l).then(() => {
+        l = (r) => {
+          s.deleteUser(r).then(() => {
             o("delete-user")
           })
         }
-      return (l, _) => {
+      return (r, _) => {
         const u = M,
           a = T,
           f = z,
@@ -101,8 +101,8 @@ const Q = { style: { display: "flex", "align-items": "center" } },
                   u,
                   { label: "Фото", width: "180" },
                   {
-                    default: n((r) => [
-                      g("div", Q, [g("img", { src: r.row.avatar }, null, 8, R)])
+                    default: n((i) => [
+                      g("div", Q, [g("img", { src: i.row.avatar }, null, 8, R)])
                     ]),
                     _: 1
                   }
@@ -110,33 +110,33 @@ const Q = { style: { display: "flex", "align-items": "center" } },
                 e(
                   u,
                   { label: "Имя", width: "180" },
-                  { default: n((r) => [g("p", null, y(r.row.first_name), 1)]), _: 1 }
+                  { default: n((i) => [g("p", null, y(i.row.first_name), 1)]), _: 1 }
                 ),
                 e(
                   u,
                   { label: "Фамилия", width: "180" },
-                  { default: n((r) => [g("p", null, y(r.row.last_name), 1)]), _: 1 }
+                  { default: n((i) => [g("p", null, y(i.row.last_name), 1)]), _: 1 }
                 ),
                 e(
                   u,
                   { label: "Email", width: "180" },
-                  { default: n((r) => [g("p", null, y(r.row.email), 1)]), _: 1 }
+                  { default: n((i) => [g("p", null, y(i.row.email), 1)]), _: 1 }
                 ),
                 e(
                   u,
                   { fixed: "right" },
                   {
-                    default: n((r) => [
+                    default: n((i) => [
                       e(
                         a,
-                        { size: "small", onClick: (d) => t(r.row.id) },
+                        { size: "small", onClick: (c) => t(i.row.id) },
                         { default: n(() => [b("Изменить")]), _: 2 },
                         1032,
                         ["onClick"]
                       ),
                       e(
                         f,
-                        { title: "Вы уверены?", onConfirm: (d) => i(r.row.id) },
+                        { title: "Вы уверены?", onConfirm: (c) => l(i.row.id) },
                         {
                           reference: n(() => [
                             e(
@@ -160,7 +160,7 @@ const Q = { style: { display: "flex", "align-items": "center" } },
             8,
             ["data"]
           )),
-          [[v, c.isLoading]]
+          [[v, d.isLoading]]
         )
       }
     }
@@ -171,14 +171,14 @@ const X = C(W, [["__scopeId", "data-v-071522d7"]]),
     __name: "TableActions",
     emits: ["create-user"],
     setup(p, { emit: o }) {
-      return (c, s) => {
+      return (d, s) => {
         const t = T
         return (
           h(),
           P("div", Y, [
             e(
               t,
-              { onClick: s[0] || (s[0] = (i) => o("create-user")) },
+              { onClick: s[0] || (s[0] = (l) => o("create-user")) },
               { default: n(() => [b("Создать")]), _: 1 }
             )
           ])
@@ -194,32 +194,38 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
     props: { title: null, userId: null },
     emits: ["close", "confirm"],
     setup(p, { emit: o }) {
-      const c = p,
+      const d = p,
         s = E(),
         t = x({}),
-        i = x(!1)
+        l = x(!1)
       ;(() => {
-        c.userId
-          ? s.getUser(c.userId).then(({ data: u }) => {
+        d.userId
+          ? s.getUser(d.userId).then(({ data: u }) => {
               t.value = u.data
             })
           : (t.value = { email: "", first_name: "", last_name: "" })
       })()
       const _ = () => {
-        ;(i.value = !0),
-          c.userId
-            ? s.updateUser(t.value).then(() => {
-                ;(i.value = !1), o("confirm")
-              })
-            : s.createUser(t.value).then(() => {
-                ;(i.value = !1), o("confirm")
-              })
+        ;(l.value = !0),
+          d.userId
+            ? s
+                .updateUser(t.value)
+                .then(() => {
+                  ;(l.value = !1), o("confirm")
+                })
+                .catch(() => (l.value = !1))
+            : s
+                .createUser(t.value)
+                .then(() => {
+                  ;(l.value = !1), o("confirm")
+                })
+                .catch(() => (l.value = !1))
       }
       return (u, a) => {
         const f = O,
           m = j,
           v = T,
-          r = G
+          i = G
         return (
           h(),
           $(
@@ -238,7 +244,7 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
                 g("div", te, [
                   g("p", ne, y(p.title), 1),
                   e(
-                    r,
+                    i,
                     { onKeyup: A(_, ["enter"]) },
                     {
                       default: n(() => [
@@ -252,7 +258,7 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
                                 {
                                   modelValue: t.value.email,
                                   "onUpdate:modelValue":
-                                    a[0] || (a[0] = (d) => (t.value.email = d))
+                                    a[0] || (a[0] = (c) => (t.value.email = c))
                                 },
                                 null,
                                 8,
@@ -272,7 +278,7 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
                                 {
                                   modelValue: t.value.first_name,
                                   "onUpdate:modelValue":
-                                    a[1] || (a[1] = (d) => (t.value.first_name = d))
+                                    a[1] || (a[1] = (c) => (t.value.first_name = c))
                                 },
                                 null,
                                 8,
@@ -292,7 +298,7 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
                                 {
                                   modelValue: t.value.last_name,
                                   "onUpdate:modelValue":
-                                    a[2] || (a[2] = (d) => (t.value.last_name = d))
+                                    a[2] || (a[2] = (c) => (t.value.last_name = c))
                                 },
                                 null,
                                 8,
@@ -306,14 +312,14 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
                           default: n(() => [
                             e(
                               v,
-                              { type: "primary", loading: i.value, onClick: _ },
+                              { type: "primary", loading: l.value, onClick: _ },
                               { default: n(() => [b("Подтвердить")]), _: 1 },
                               8,
                               ["loading"]
                             ),
                             e(
                               v,
-                              { onClick: a[3] || (a[3] = (d) => o("close")) },
+                              { onClick: a[3] || (a[3] = (c) => o("close")) },
                               { default: n(() => [b("Отмена")]), _: 1 }
                             )
                           ]),
@@ -334,19 +340,19 @@ const ee = C(Z, [["__scopeId", "data-v-c689f36d"]]),
       }
     }
   })
-const oe = C(ae, [["__scopeId", "data-v-ca583777"]]),
+const oe = C(ae, [["__scopeId", "data-v-af679ae9"]]),
   se = { class: "users-page" },
   le = { class: "users-page__table-container" },
   re = U({
     __name: "UsersPage",
     setup(p) {
       const o = E(),
-        c = { page: 1, per_page: 10 },
+        d = { page: 1, per_page: 10 },
         s = x(!0),
-        { close: t, open: i, options: l } = K({ component: oe }),
+        { close: t, open: l, options: r } = K({ component: oe }),
         _ = q({})
       ;(() => {
-        Object.assign(_, c)
+        Object.assign(_, d)
       })()
       const a = () => {
         ;(s.value = !0),
@@ -356,7 +362,7 @@ const oe = C(ae, [["__scopeId", "data-v-ca583777"]]),
       }
       a()
       const f = () => {
-          ;(l.attrs = {
+          ;(r.attrs = {
             title: "Создание",
             onClose() {
               t()
@@ -365,12 +371,12 @@ const oe = C(ae, [["__scopeId", "data-v-ca583777"]]),
               t(), a()
             }
           }),
-            i()
+            l()
         },
-        m = (r) => {
-          ;(l.attrs = {
+        m = (i) => {
+          ;(r.attrs = {
             title: "Редактирование",
-            userId: r,
+            userId: i,
             onClose() {
               t()
             },
@@ -378,14 +384,14 @@ const oe = C(ae, [["__scopeId", "data-v-ca583777"]]),
               t(), a()
             }
           }),
-            i()
+            l()
         },
         v = () => {
           a()
         }
       return (
         H(_, a),
-        (r, d) => {
+        (i, c) => {
           const k = ee,
             L = X,
             V = J
@@ -402,9 +408,9 @@ const oe = C(ae, [["__scopeId", "data-v-ca583777"]]),
                 V,
                 {
                   page: _.page,
-                  "onUpdate:page": d[0] || (d[0] = (w) => (_.page = w)),
+                  "onUpdate:page": c[0] || (c[0] = (w) => (_.page = w)),
                   per_page: _.per_page,
-                  "onUpdate:per_page": d[1] || (d[1] = (w) => (_.per_page = w)),
+                  "onUpdate:per_page": c[1] || (c[1] = (w) => (_.per_page = w)),
                   maxPage: I(o).usersMaxPage
                 },
                 null,
