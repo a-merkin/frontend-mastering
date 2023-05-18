@@ -65410,7 +65410,7 @@ This will fail in production.`)
       }
     }),
     kSe = jo(SSe, [["__scopeId", "data-v-a5f5f744"]]),
-    Ob = (e) => (U0("data-v-e0b978bf"), (e = e()), q0(), e),
+    Ob = (e) => (U0("data-v-fb20c274"), (e = e()), q0(), e),
     ESe = Ob(() => C("span", null, "Список пользователей", -1)),
     xSe = Ob(() => C("span", null, "Об авторе", -1)),
     MSe = G({
@@ -65422,11 +65422,12 @@ This will fail in production.`)
           const l = et("UserFilled"),
             a = Fe,
             s = T_,
-            u = M_
+            u = et("InfoFilled"),
+            c = M_
           return (
             y(),
             se(
-              u,
+              c,
               { "default-active": "1", class: "sidebar", onOpen: t, onClose: n },
               {
                 default: U(() => [
@@ -65434,7 +65435,7 @@ This will fail in production.`)
                     s,
                     {
                       index: "1",
-                      onClick: r[0] || (r[0] = (c) => i(bo).push("/users-list"))
+                      onClick: r[0] || (r[0] = (f) => i(bo).push("/users-list"))
                     },
                     {
                       default: U(() => [
@@ -65446,10 +65447,10 @@ This will fail in production.`)
                   ),
                   D(
                     s,
-                    { index: "2", onClick: r[1] || (r[1] = (c) => i(bo).push("/about")) },
+                    { index: "2", onClick: r[1] || (r[1] = (f) => i(bo).push("/about")) },
                     {
                       default: U(() => [
-                        D(a, null, { default: U(() => [D(l)]), _: 1 }),
+                        D(a, null, { default: U(() => [D(u)]), _: 1 }),
                         xSe
                       ]),
                       _: 1
@@ -65463,7 +65464,7 @@ This will fail in production.`)
         }
       }
     }),
-    TSe = jo(MSe, [["__scopeId", "data-v-e0b978bf"]]),
+    TSe = jo(MSe, [["__scopeId", "data-v-fb20c274"]]),
     OSe = (e) => (U0("data-v-e33c5b95"), (e = e()), q0(), e),
     zSe = OSe(() => C("p", { class: "user-menu__username" }, "Меню пользователя", -1)),
     ASe = G({
@@ -66013,7 +66014,7 @@ This will fail in production.`)
       }
     }),
     lke = jo(rke, [["__scopeId", "data-v-573acb64"]]),
-    Wp = (e) => (U0("data-v-091af4a8"), (e = e()), q0(), e),
+    Wp = (e) => (U0("data-v-0c10528f"), (e = e()), q0(), e),
     ake = { class: "info-page" },
     ske = Wp(() =>
       C("h2", null, "Привет! Меня зовут Арсен, я front-end разработчик.", -1)
@@ -66026,7 +66027,7 @@ This will fail in production.`)
           C(
             "p",
             null,
-            " Мне 20 лет, я учусь в Уфимском университете науки и технологии на специальности Информатика и вычислительная техника (заканчиваю 3 курс). Знакомство с JS у меня началось 2 года назад в университетском конкурсе. Я разрабатывал мобильное приложение для алгоритмической торговли на бирже на React Native. "
+            " Мне 20 лет, я учусь в Уфимском университете науки и технологий на специальности Информатика и вычислительная техника (заканчиваю 3 курс). Знакомство с JS у меня началось 2 года назад в университетском конкурсе. Я разрабатывал мобильное приложение для алгоритмической торговли на бирже на React Native. "
           ),
           C(
             "p",
@@ -66192,7 +66193,7 @@ This will fail in production.`)
         }
       }
     }),
-    fke = jo(dke, [["__scopeId", "data-v-091af4a8"]]),
+    fke = jo(dke, [["__scopeId", "data-v-0c10528f"]]),
     pke = [
       {
         path: "/start",
