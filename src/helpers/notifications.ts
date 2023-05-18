@@ -8,7 +8,7 @@ export const showErrorMessage = (notification: Notification) => {
     title: "Ошибка",
     message: `Server response: ${notification.text}`,
     showClose: true,
-    duration: 4000
+    duration: 5000
   })
 }
 
@@ -17,6 +17,6 @@ export const showSuccessMessage = (notification: Notification) => {
     title: notification.type,
     message: notification.text,
     showClose: true,
-    duration: 4000
+    duration: 5000
   })
 }
