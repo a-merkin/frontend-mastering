@@ -26,6 +26,7 @@
 <img width="500" alt="image" src="https://github.com/a-merkin/frontend-mastering/assets/64312315/55ded277-4186-4ea3-a511-a22df8904f73">
 
 
+
 Также:
 
 Выполнена настройка CI/CD с выкладкой в GitHubPages (https://a-merkin.github.io/frontend-mastering/) и Netlify (https://beamish-sorbet-28f214.netlify.app).
@@ -44,6 +45,8 @@
  - CSS препроцессор [SCSS](https://sass-scss.ru/)
 
 # Инструкция запуска:
+Для авторизации или регистрации тестовое API принимает только определенную почту: eve.holt@reqres.in
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
