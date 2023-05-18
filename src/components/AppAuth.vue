@@ -73,10 +73,12 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate((valid: boolean) => {
     if (valid) {
       isLoading.value = true
-      handleLogin(form).then(() => {
-        router.push("/workplace")
-        isLoading.value = false
-      })
+      handleLogin(form)
+        .then(() => {
+          isLoading.value = false
+          router.push("/workplace")
+        })
+        .catch(() => (isLoading.value = false))
     } else {
       return false
     }

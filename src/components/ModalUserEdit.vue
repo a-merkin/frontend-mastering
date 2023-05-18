@@ -68,15 +68,21 @@ initForm()
 const handleSubmit = () => {
   isLoading.value = true
   if (props.userId) {
-    usersStore.updateUser(form.value).then(() => {
-      isLoading.value = false
-      emit("confirm")
-    })
+    usersStore
+      .updateUser(form.value)
+      .then(() => {
+        isLoading.value = false
+        emit("confirm")
+      })
+      .catch(() => (isLoading.value = false))
   } else {
-    usersStore.createUser(form.value).then(() => {
-      isLoading.value = false
-      emit("confirm")
-    })
+    usersStore
+      .createUser(form.value)
+      .then(() => {
+        isLoading.value = false
+        emit("confirm")
+      })
+      .catch(() => (isLoading.value = false))
   }
 }
 </script>
