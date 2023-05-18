@@ -62497,7 +62497,7 @@ function M7e(e, t) {
 }
 const T7e = "modulepreload",
   O7e = function (e) {
-    return "/" + e
+    return "/frontend-mastering/" + e
   },
   z4 = {},
   Ka = function (t, n, o) {
@@ -62538,9 +62538,9 @@ const T7e = "modulepreload",
       name: "Start",
       component: () =>
         Ka(
-          () => import("./StartPage-7959fbc2.js"),
+          () => import("./StartPage-e6180eb0.js"),
           [
-            "assets/StartPage-7959fbc2.js",
+            "assets/StartPage-e6180eb0.js",
             "assets/_plugin-vue_export-helper-c27b6911.js",
             "assets/StartPage-6a9cbf18.css"
           ]
@@ -62552,9 +62552,9 @@ const T7e = "modulepreload",
           name: "Auth",
           component: () =>
             Ka(
-              () => import("./AppAuth-32cf9312.js"),
+              () => import("./AppAuth-c859f714.js"),
               [
-                "assets/AppAuth-32cf9312.js",
+                "assets/AppAuth-c859f714.js",
                 "assets/el-input-c180d847.css",
                 "assets/el-button-2cb60ae5.css",
                 "assets/el-icon-b1770749.css"
@@ -62567,9 +62567,9 @@ const T7e = "modulepreload",
           name: "Register",
           component: () =>
             Ka(
-              () => import("./AppRegistration-caf9e4da.js"),
+              () => import("./AppRegistration-10028686.js"),
               [
-                "assets/AppRegistration-caf9e4da.js",
+                "assets/AppRegistration-10028686.js",
                 "assets/el-input-c180d847.css",
                 "assets/el-button-2cb60ae5.css"
               ]
@@ -62583,9 +62583,9 @@ const T7e = "modulepreload",
       name: "Workplace",
       component: () =>
         Ka(
-          () => import("./MainPage-2ed2c480.js"),
+          () => import("./MainPage-2c7083cc.js"),
           [
-            "assets/MainPage-2ed2c480.js",
+            "assets/MainPage-2c7083cc.js",
             "assets/_plugin-vue_export-helper-c27b6911.js",
             "assets/MainPage-7303e28a.css",
             "assets/el-scrollbar-4dbad1cd.css",
@@ -62600,9 +62600,9 @@ const T7e = "modulepreload",
           name: "Users",
           component: () =>
             Ka(
-              () => import("./UsersPage-b5064256.js"),
+              () => import("./UsersPage-9fb1e5ad.js"),
               [
-                "assets/UsersPage-b5064256.js",
+                "assets/UsersPage-9fb1e5ad.js",
                 "assets/_plugin-vue_export-helper-c27b6911.js",
                 "assets/UsersPage-739307ce.css",
                 "assets/el-input-c180d847.css",
@@ -62615,7 +62615,7 @@ const T7e = "modulepreload",
       ]
     }
   ],
-  sc = x7e({ history: jCe("/"), routes: z7e })
+  sc = x7e({ history: jCe("/frontend-mastering/"), routes: z7e })
 function Iy(e, t) {
   return function () {
     return e.apply(t, arguments)

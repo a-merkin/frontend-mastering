@@ -14,7 +14,7 @@ import {
   l as x,
   n as P,
   p as R
-} from "./index-62fbf858.js"
+} from "./index-d92acd7d.js"
 /* empty css                 */ /* empty css                  */ const N = E({
   __name: "AppRegistration",
   setup(h) {
