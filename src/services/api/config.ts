@@ -1,5 +1,5 @@
 import { useAppStore } from "@/store/"
-import { showErrorMessage, showSuccessMessage } from "@/helpers/notifications.ts"
+import { showErrorMessage, showSuccessMessage } from "@/helpers/notifications"
 import axios from "axios"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

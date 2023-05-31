@@ -1,3 +1,5 @@
+import { ElNotification } from "element-plus"
+
 type Notification = {
   type: string
   text: string

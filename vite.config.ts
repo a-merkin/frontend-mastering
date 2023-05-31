@@ -50,6 +50,7 @@ export default defineConfig({
       }
     ]
   },
+  envPrefix: "VITE_",
   server: {
     port: 8080
   }
