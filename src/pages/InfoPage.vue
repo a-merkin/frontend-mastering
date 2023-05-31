@@ -19,7 +19,7 @@
           служб (112, 122).
         </p>
       </div>
-      <el-scrollbar max-height="250px" always style="width: 50%">
+      <el-scrollbar max-height="250px" always style="width: 450px">
         <el-timeline>
           <el-timeline-item
             v-for="(activity, index) in activities"
