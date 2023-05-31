@@ -13,17 +13,17 @@
         </div>
       </template>
     </el-table-column>
-    <el-table-column label="Имя" width="180">
+    <el-table-column label="Имя">
       <template #default="scope">
         <p>{{ scope.row.first_name }}</p>
       </template>
     </el-table-column>
-    <el-table-column label="Фамилия" width="180">
+    <el-table-column label="Фамилия">
       <template #default="scope">
         <p>{{ scope.row.last_name }}</p>
       </template>
     </el-table-column>
-    <el-table-column label="Email" width="180">
+    <el-table-column label="Email">
       <template #default="scope">
         <p>{{ scope.row.email }}</p>
       </template>

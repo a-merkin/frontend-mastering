@@ -8,7 +8,7 @@
         <AppSidebar />
       </el-aside>
       <el-main>
-        <div style="background: #fff; height: 100%">
+        <div style="background: #fff; height: 100%; border-radius: 15px">
           <RouterView></RouterView>
         </div>
       </el-main>

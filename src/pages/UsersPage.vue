@@ -109,7 +109,6 @@ watch(paginationForm, fetchUsers)
 
   &__table-container {
     height: 75vh;
-    box-sizing: border-box;
   }
 }
 </style>

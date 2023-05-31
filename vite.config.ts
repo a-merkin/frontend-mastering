@@ -6,7 +6,6 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 import { fileURLToPath } from "url"
 
 export default defineConfig({
-  base: "/frontend-mastering/",
   plugins: [
     vue({
       reactivityTransform: true
